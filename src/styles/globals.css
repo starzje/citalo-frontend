@@ -1,0 +1,17 @@
+@import 'svgDivider.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.sadrzaj--postova p {
+  padding-top: 1em;
+}
+
+.sadrzaj--postova img {
+  @apply border-[10px] rounded-xl border-[#EDECEC] shadow-md;
+}
+
+blockquote > p {
+  @apply text-lg font-extralight text-center italic my-auto;
+}
