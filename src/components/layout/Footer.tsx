@@ -70,22 +70,6 @@ const Footer = () => {
             </ul>
           </nav>
         </div>
-        <div className="">
-          <div className="mt-4 mb-2 font-medium xl:mb-4 -ml-0 md:-ml-6 select-none  ">
-            <div className="mt-4 mb-2 font-medium xl:mb-4 select-none">
-              Website by:
-            </div>
-            <div className="space-y-2 text-gray-500   ">
-              <a
-                href="https://www.ivan-starcevic.com/"
-                target="_blank"
-                className="flex gap-2 pb-[0.5em] items-center  hover:text-dark-brown transition duration-300 font-light"
-              >
-                www.ivan-starcevic.com
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
       <div className="bg-slate-50">
         <div className="mx-auto flex max-w-screen-xl flex-col gap-y-4 px-4 py-3 text-center text-gray-500 sm:flex-row sm:justify-between sm:text-left">
