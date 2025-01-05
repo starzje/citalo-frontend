@@ -31,7 +31,7 @@ const Nav: FC<MobileMenuProps> = ({ isOpen, setIsOpen }) => {
       </Link>
       <p className="hidden md:inline-block border font-light text-dark-brown border-black p-2 rounded-2xl">
         Danas čitam:{' '}
-        <span className=" text-dark-brown">Stoner - John E. Williams </span>
+        <span className=" text-dark-brown">Sedam mjeseci Maalija Almeide </span>
       </p>
       <nav>
         <ul className="hidden md:flex items-center space-x-1">

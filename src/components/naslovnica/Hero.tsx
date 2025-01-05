@@ -34,7 +34,7 @@ const Hero = () => {
           priority={true}
           aria-label="Slika police s knjigama"
           className="w-full  rounded-lg"
-          src="/background.jpg"
+          src="/background2.jpg"
           alt="Polica s knjigama"
           width={500}
           height={500}
