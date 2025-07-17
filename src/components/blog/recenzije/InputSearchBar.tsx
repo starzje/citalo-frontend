@@ -59,7 +59,7 @@ const InputSearchBar: FC<ArticleProps> = ({
         className="mx-auto relative flex  flex-col justify-between rounded-lg border p-2 sm:flex-row sm:items-center sm:p-0 md:w-1/2 w-full"
       >
         <input
-          type="name"
+          type="text"
           name="search"
           autoComplete="off"
           className="pl-3 w-full cursor-text rounded-md py-4 outline-double outline-2 outline-dark-brown ring-light-brown sm:border-0 focus:ring "
