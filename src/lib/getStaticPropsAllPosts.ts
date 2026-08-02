@@ -1,6 +1,7 @@
 import { GET_ALL_POSTS } from '@/graphql/queries';
 import { AllPostsProps } from '@/types';
 import { client } from './apollo-client';
+import { fetchTrenutnaKnjiga } from './fetchTrenutnaKnjiga';
 
 /**
  * @function
@@ -11,12 +12,15 @@ This function is responsible for fetching all the posts data and returning it as
 */
 export async function getStaticProps() {
   try {
-    const { data } = await client.query({
-      query: GET_ALL_POSTS,
-      variables: {
-        first: 50,
-      },
-    });
+    const [{ data }, trenutnaKnjiga] = await Promise.all([
+      client.query({
+        query: GET_ALL_POSTS,
+        variables: {
+          first: 50,
+        },
+      }),
+      fetchTrenutnaKnjiga(),
+    ]);
 
     // Sort the data by date property
     const sortedPosts = [...data.posts.data].sort(
@@ -31,6 +35,7 @@ export async function getStaticProps() {
     return {
       props: {
         posts: sortedPosts,
+        trenutnaKnjiga,
       },
     };
   } catch (err) {
@@ -38,6 +43,7 @@ export async function getStaticProps() {
     return {
       props: {
         posts: [],
+        trenutnaKnjiga: null,
       },
     };
   }

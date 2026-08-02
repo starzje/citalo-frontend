@@ -221,6 +221,23 @@ const GET_NEDAVNI_POSTOVI = gql`
   }
 `;
 
+/**
+ * @query GET_TRENUTNA_KNJIGA
+ * @desc Get the currently-reading book title from the `trenutna-knjiga` single type.
+ * @returns {Object} - `{ trenutnaKnjiga: { data: { attributes: { title } } | null } }`
+ */
+const GET_TRENUTNA_KNJIGA = gql`
+  query {
+    trenutnaKnjiga {
+      data {
+        attributes {
+          title
+        }
+      }
+    }
+  }
+`;
+
 export {
   GET_ALL_POSTS,
   GET_INDIVIDUAL_POST,
@@ -230,4 +247,5 @@ export {
   GET_INDIVIDUAL_POST_SVASTARA,
   GET_ALL_POSTS_SVASTARA,
   GET_ALL_SLUGS_SVASTARA,
+  GET_TRENUTNA_KNJIGA,
 };

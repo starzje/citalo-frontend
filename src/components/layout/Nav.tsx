@@ -5,10 +5,10 @@ import logo_citalo from '/public/logo_citalo.png';
 import logo from '/public/logo.png';
 import Image from 'next/image';
 import { Twirl as Hamburger } from 'hamburger-react';
-import { MobileMenuProps } from '@/types';
+import { NavProps } from '@/types';
 import { useRouter } from 'next/router';
 
-const Nav: FC<MobileMenuProps> = ({ isOpen, setIsOpen }) => {
+const Nav: FC<NavProps> = ({ isOpen, setIsOpen, trenutnaKnjiga }) => {
   const router = useRouter();
   return (
     <header className="container mx-auto flex items-center relative justify-between h-[85px] py-5 px-4  ">
@@ -29,12 +29,14 @@ const Nav: FC<MobileMenuProps> = ({ isOpen, setIsOpen }) => {
           width={120}
         />
       </Link>
-      <p className="hidden md:inline-block border font-light text-dark-brown border-black p-2 rounded-2xl">
-        Danas čitam:{' '}
-        <span className=" text-dark-brown">Sedam mjeseci Maalija Almeide </span>
-      </p>
+      {trenutnaKnjiga ? (
+        <p className="hidden md:inline-block border font-light text-dark-brown border-black p-2 rounded-2xl">
+          Danas čitam:{' '}
+          <span className=" text-dark-brown">{trenutnaKnjiga} </span>
+        </p>
+      ) : null}
       <nav>
-        <ul className="hidden md:flex items-center space-x-1">
+      <ul className="hidden md:flex items-center space-x-1">
           {MENI.map((item) => {
             return (
               <li key={item.id}>

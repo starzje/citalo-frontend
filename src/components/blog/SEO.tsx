@@ -16,7 +16,7 @@ const SEO: FC<SeoProps> = ({ pageTitle, pageDescription }) => (
     />
     <meta
       name="keywords"
-      content="knjige, čitanje, recenzije, blog, čitalo books, čitalo, books"
+      content="knjige, čitanje, osvrti, recenzije, blog, čitalo books, čitalo, books"
     />
     <meta charSet="utf-8" />
     <meta

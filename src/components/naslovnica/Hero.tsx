@@ -22,7 +22,7 @@ const Hero = () => {
             icon={<HiOutlineBookOpen />}
           />
           <LinkButtons
-            link="https://www.instagram.com/_citalo_/"
+            link="https://www.instagram.com/citalo_books/"
             label="Čitalo na Instagramu"
             openInNewTab={true}
             icon={<FaInstagram />}

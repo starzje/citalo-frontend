@@ -17,7 +17,7 @@ const Article: FC<{
         <Image
           src={posts.attributes?.image?.data?.attributes?.url}
           loading="lazy"
-          alt="preview image za recenziju"
+          alt="preview image za osvrt"
           className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
           width={500}
           height={500}

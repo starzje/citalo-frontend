@@ -14,3 +14,7 @@ export interface MobileMenuProps {
   isOpen?: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
+
+export interface NavProps extends MobileMenuProps {
+  trenutnaKnjiga?: string | null;
+}

@@ -1,5 +1,11 @@
 import { Container } from '@/components';
 import React from 'react';
+import { fetchTrenutnaKnjiga } from '@/lib/fetchTrenutnaKnjiga';
+
+export async function getStaticProps() {
+  const trenutnaKnjiga = await fetchTrenutnaKnjiga();
+  return { props: { trenutnaKnjiga } };
+}
 
 const index = () => {
   return (

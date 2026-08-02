@@ -15,7 +15,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <div className={`${poppins.className} bg-stone-200 relative`}>
       <div className={`max-w-[1100px] min-h-screen   m-auto `}>
-        <PageConnectedLayout>
+        <PageConnectedLayout trenutnaKnjiga={pageProps.trenutnaKnjiga}>
           <CookieConsent
             location="bottom"
             buttonText="I understand"

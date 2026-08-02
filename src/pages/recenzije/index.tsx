@@ -9,13 +9,13 @@ const Posts: FC<{ posts: AllPostsProps[] }> = ({ posts }) => {
   return (
     <Container>
       <StranicaBloga
-        title="Recenzije"
+        title="Osvrti"
         description="Što ti Čitalo nudi? Ovdje ćeš pronaći dojmove o knjigama koje sam
             nedavno pročitala i raznovrsne preporuke za čitanje, a najviše od
             svega ti želim da u moru blještavih korica i tajanstvenih naslova
             pronađeš savršenu knjigu za sebe."
-        pageSeoDescription="Recenzije knjiga koje sam nedavno pročitala i raznovrsne preporuke za čitanje."
-        pageSeoTitle="Čitalo - Recenzije"
+        pageSeoDescription="Osvrti na knjige koje sam nedavno pročitala i raznovrsne preporuke za čitanje."
+        pageSeoTitle="Čitalo - Osvrti"
         pathPrefix="recenzije"
         posts={posts}
         searchTerm={searchTerm}

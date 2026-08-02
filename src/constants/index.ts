@@ -18,7 +18,7 @@ export const MENI = [
   },
   {
     id: 3,
-    naslov: 'Recenzije',
+    naslov: 'Osvrti',
     putanja: '/recenzije',
   },
   {

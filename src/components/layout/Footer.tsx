@@ -38,11 +38,11 @@ const Footer = () => {
               <HiOutlineMail /> citalo.info@gmail.com
             </a>
             <a
-              href="https://www.instagram.com/_citalo_/"
+              href="https://www.instagram.com/citalo_books/"
               target="_blank"
               className="flex gap-2 items-center hover:text-dark-brown transition duration-300 font-light"
             >
-              <FaInstagram /> _citalo_
+              <FaInstagram /> citalo_books
             </a>
           </div>
         </div>
@@ -73,7 +73,7 @@ const Footer = () => {
       </div>
       <div className="bg-slate-50">
         <div className="mx-auto flex max-w-screen-xl flex-col gap-y-4 px-4 py-3 text-center text-gray-500 sm:flex-row sm:justify-between sm:text-left">
-          <p className="select-none">© 2023 Čitalo | Sva prava pridržana</p>
+          <p className="select-none">© 2026 Čitalo | Sva prava pridržana</p>
           <div className="">
             <Link
               className="hover:text-dark-brown transition duration-300 font-light"

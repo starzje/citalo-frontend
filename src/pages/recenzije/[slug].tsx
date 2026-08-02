@@ -10,8 +10,8 @@ const Post: FC<SinglePostProps> = ({ post }) => {
     <Container>
       <PodstranicaBloga
         post={post}
-        pageSeoDescription="Recenzije knjiga koje sam nedavno pročitala i raznovrsne preporuke za čitanje."
-        pageSeoTitle="Čitalo - Recenzija knjige"
+        pageSeoDescription="Osvrti na knjige koje sam nedavno pročitala i raznovrsne preporuke za čitanje."
+        pageSeoTitle="Čitalo - Osvrt na knjigu"
       />
     </Container>
   );

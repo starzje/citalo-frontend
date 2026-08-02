@@ -1,7 +1,7 @@
 import { GET_INDIVIDUAL_POST_SVASTARA } from '@/graphql/queries';
 import { client } from './apollo-client';
 import { serialize } from 'next-mdx-remote/serialize';
-import { SinglePostProps } from '@/types';
+import { fetchTrenutnaKnjiga } from './fetchTrenutnaKnjiga';
 
 /**
  * Retrieves the data for an individual post from the API and returns it as a prop.
@@ -12,10 +12,13 @@ import { SinglePostProps } from '@/types';
  */
 export async function getStaticProps({ params }: { params: { slug: string } }) {
   try {
-    const { data } = await client.query({
-      query: GET_INDIVIDUAL_POST_SVASTARA,
-      variables: { slug: params.slug },
-    });
+    const [{ data }, trenutnaKnjiga] = await Promise.all([
+      client.query({
+        query: GET_INDIVIDUAL_POST_SVASTARA,
+        variables: { slug: params.slug },
+      }),
+      fetchTrenutnaKnjiga(),
+    ]);
 
     const attributes = data.svastaras.data[0].attributes;
     const html = await serialize(attributes.content);
@@ -27,13 +30,15 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
           content: html,
           image: attributes?.image?.data?.attributes?.url,
         },
-      } as SinglePostProps,
+        trenutnaKnjiga,
+      },
     };
   } catch (err) {
     console.error(err);
     return {
       props: {
         post: null,
+        trenutnaKnjiga: null,
       },
     };
   }

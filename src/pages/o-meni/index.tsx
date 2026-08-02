@@ -2,6 +2,12 @@ import { Container, SEO } from 'src/components';
 import React from 'react';
 import { FC } from 'react';
 import Image from 'next/image';
+import { fetchTrenutnaKnjiga } from '@/lib/fetchTrenutnaKnjiga';
+
+export async function getStaticProps() {
+  const trenutnaKnjiga = await fetchTrenutnaKnjiga();
+  return { props: { trenutnaKnjiga } };
+}
 
 const OMeni: FC = () => {
   return (
@@ -39,7 +45,7 @@ const OMeni: FC = () => {
             nema baš toliko vremena viška, ali je motivacija za dijeljenjem
             dojmova ogromna jer se oko Čitala okupila mala, ali moćna zajednica
             knjigoljubaca. (A sada ću se prebaciti na pisanje u prvom licu).
-            Važno je reći da nisam stručna ponuditi vam recenzije na razini
+            Važno je reći da nisam stručna ponuditi vam osvrte na razini
             književnih kritičara niti je Čitalo zamišljeno na taj način. Prije
             svega vam nudim iskrene dojmove o pročitanim knjigama iz perspektive
             prosječnog čitatelja i dugogodišnjeg knjiškog moljca, zaljubljenika

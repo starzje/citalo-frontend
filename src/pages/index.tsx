@@ -9,7 +9,7 @@ const Home: FC<NaslovnaProps> = ({ recenzije, nedavnipostovi }) => {
     <Container>
       <SEO
         pageTitle="Čitalo Books"
-        pageDescription="Blog o knjigama i čitanju, te recenziji knjiga"
+        pageDescription="Blog o knjigama i čitanju, te osvrtu na knjige"
       />
 
       <Hero />

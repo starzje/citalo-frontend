@@ -1,9 +1,10 @@
 import React, { FC, useState } from 'react';
 import { Nav, Footer, MobileMenu } from 'src/components';
 
-const PageConnectedLayout: FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+const PageConnectedLayout: FC<{
+  children: React.ReactNode;
+  trenutnaKnjiga?: string | null;
+}> = ({ children, trenutnaKnjiga }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   /**
@@ -19,6 +20,7 @@ const PageConnectedLayout: FC<{ children: React.ReactNode }> = ({
       <Nav
         isOpen={isOpen}
         setIsOpen={setIsOpen}
+        trenutnaKnjiga={trenutnaKnjiga}
       />
       {!isOpen ? (
         <>

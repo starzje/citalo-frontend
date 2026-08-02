@@ -2,6 +2,12 @@ import { Container, SEO } from 'src/components';
 import React from 'react';
 import { FC } from 'react';
 import Image from 'next/image';
+import { fetchTrenutnaKnjiga } from '@/lib/fetchTrenutnaKnjiga';
+
+export async function getStaticProps() {
+  const trenutnaKnjiga = await fetchTrenutnaKnjiga();
+  return { props: { trenutnaKnjiga } };
+}
 
 const kontakt: FC = () => {
   return (
@@ -33,7 +39,7 @@ const kontakt: FC = () => {
           <span className=" text-dark-brown font-semibold">
             <a
               className=""
-              href="https://www.instagram.com/_citalo_/"
+              href="https://www.instagram.com/citalo_books/"
               target="_blank"
             >
               {' '}
