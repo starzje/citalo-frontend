@@ -76,6 +76,41 @@ const index = () => {
           informacija o tome što su kolačići i kako ih odbiti, možete saznati i
           na stranici: https://www.allaboutcookies.org
         </p>
+        <h4 className="text-xl font-semibold pb-2 mt-5">
+          KOJE KOLAČIĆE KORISTIMO?
+        </h4>
+        <p className="font-light text-justify">
+          Ova web stranica koristi Google Analytics, uslugu za analizu
+          posjećenosti koju pruža Google Ireland Limited (Gordon House, Barrow
+          Street, Dublin 4, Irska). Google Analytics postavlja kolačiće pod
+          nazivima _ga i _ga_*, pomoću kojih dobivamo uvid u to koliko
+          posjetitelja dolazi na stranicu, koje sadržaje čitaju i koliko se
+          zadržavaju. Te podatke koristimo isključivo u statističkom obliku i ne
+          služe nam za identifikaciju pojedinačnih posjetitelja niti ih
+          prodajemo trećim stranama.
+        </p>
+        <p className="font-light text-justify mt-3">
+          Analitičke kolačiće postavljamo isključivo uz Vaš prethodni pristanak,
+          koji zatražimo skočnom obavijesti pri prvom posjetu. Ako pristanak ne
+          date, kolačići za analitiku se ne postavljaju, a stranica i dalje radi
+          jednako. Podaci prikupljeni putem Google Analyticsa mogu se prenijeti
+          i obrađivati na poslužiteljima izvan Europskoga gospodarskog prostora,
+          u skladu s Googleovim uvjetima i primjenjivim mehanizmima prijenosa
+          podataka. Više o tome kako Google obrađuje podatke možete pročitati na
+          stranici: https://policies.google.com/privacy
+        </p>
+        <h4 className="text-xl font-semibold pb-2 mt-5">
+          POVLAČENJE PRISTANKA
+        </h4>
+        <p className="font-light text-justify">
+          Svoj pristanak možete u svakom trenutku promijeniti ili povući klikom
+          na poveznicu „Postavke kolačića” u podnožju stranice. Povlačenjem
+          pristanka postojeći analitički kolačići se brišu i novi se više ne
+          postavljaju. Kolačiće možete obrisati i izravno u postavkama svojega
+          internet preglednika. Ako smatrate da Vaše podatke obrađujemo
+          protivno propisima, imate pravo podnijeti pritužbu Agenciji za zaštitu
+          osobnih podataka (AZOP), Selska cesta 136, 10000 Zagreb.
+        </p>
       </div>
     </Container>
   );

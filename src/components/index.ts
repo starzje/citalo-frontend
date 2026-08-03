@@ -11,6 +11,7 @@
  * @exports {LinkButtons} - A component for displaying custom link buttons.
  * @exports {SvgBackground} - A component for displaying a background SVG.
  * @exports {SvgDivider} - A component for displaying a divider SVG.
+ * @exports {CookieConsent} - A component for the cookie consent banner.
  * @exports {Container} - A component for wrapping content in a container.
  * @exports {PageConnectedLayout} - A component for the layout of connected pages.
  * @exports {MobileMenu} - A component for the mobile version of the website's navigation.
@@ -31,6 +32,7 @@ export { default as Hero } from 'src/components/naslovnica/Hero';
 export { default as LinkButtons } from 'src/components/UI/LinkButtons';
 export { default as SvgBackground } from 'src/components/UI/SvgBackground';
 export { default as SvgDivider } from 'src/components/UI/SvgDivider';
+export { default as CookieConsent } from 'src/components/UI/CookieConsent';
 export { default as Container } from 'src/components/layout/Container';
 export { default as PageConnectedLayout } from 'src/components/layout/PageConnectedLayout';
 export { default as MobileMenu } from 'src/components/layout/MobileMenu';

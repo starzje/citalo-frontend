@@ -1,8 +1,12 @@
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
-import CookieConsent from 'react-cookie-consent';
-import { PageConnectedLayout } from 'src/components';
+import { useCallback, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import Script from 'next/script';
+import { CookieConsent, PageConnectedLayout } from 'src/components';
 import { Poppins } from 'next/font/google';
+import { ConsentChoice, getStoredConsent } from '@/lib/consent';
+import { GA_MEASUREMENT_ID, clearAnalyticsCookies, pageview } from '@/lib/gtag';
 
 const poppins = Poppins({
   subsets: ['latin', 'latin-ext'],
@@ -12,33 +16,53 @@ const poppins = Poppins({
 });
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+  const router = useRouter();
+  const [hasConsent, setHasConsent] = useState(false);
+
+  // Read on mount only: the server render has no access to localStorage, so
+  // starting at false keeps the markup identical on both sides.
+  useEffect(() => {
+    setHasConsent(getStoredConsent() === 'granted');
+  }, []);
+
+  useEffect(() => {
+    if (!hasConsent) return;
+
+    router.events.on('routeChangeComplete', pageview);
+    return () => {
+      router.events.off('routeChangeComplete', pageview);
+    };
+  }, [hasConsent, router.events]);
+
+  const handleConsentChoice = useCallback((choice: ConsentChoice) => {
+    setHasConsent(choice === 'granted');
+    if (choice === 'denied') clearAnalyticsCookies();
+  }, []);
+
   return (
     <div className={`${poppins.className} bg-stone-200 relative`}>
+      {GA_MEASUREMENT_ID && hasConsent && (
+        <>
+          <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}');
+            `}
+          </Script>
+        </>
+      )}
       <div className={`max-w-[1100px] min-h-screen   m-auto `}>
         <PageConnectedLayout trenutnaKnjiga={pageProps.trenutnaKnjiga}>
-          <CookieConsent
-            location="bottom"
-            buttonText="I understand"
-            cookieName="CookiesAccepted"
-            acceptOnScroll={true}
-            acceptOnScrollPercentage={50}
-            style={{
-              background: '#57453d',
-            }}
-            buttonStyle={{
-              backgroundColor: '#e7e5e4',
-              color: '#4e503b',
-              fontSize: '13px',
-              borderRadius: '5px',
-              margin: '0 10px',
-            }}
-            expires={150}
-          >
-            This website uses cookies to enhance the user experience.
-          </CookieConsent>
           <Component {...pageProps} />
         </PageConnectedLayout>
       </div>
+      <CookieConsent onChoice={handleConsentChoice} />
     </div>
   );
 };

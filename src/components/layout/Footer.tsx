@@ -1,4 +1,5 @@
 import { MENI } from '@/constants';
+import { openConsentBanner } from '@/lib/consent';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -74,7 +75,14 @@ const Footer = () => {
       <div className="bg-slate-50">
         <div className="mx-auto flex max-w-screen-xl flex-col gap-y-4 px-4 py-3 text-center text-gray-500 sm:flex-row sm:justify-between sm:text-left">
           <p className="select-none">© 2026 Čitalo | Sva prava pridržana</p>
-          <div className="">
+          <div className="flex gap-4 justify-center sm:justify-end">
+            <button
+              type="button"
+              onClick={openConsentBanner}
+              className="hover:text-dark-brown transition duration-300 font-light"
+            >
+              Postavke kolačića
+            </button>
             <Link
               className="hover:text-dark-brown transition duration-300 font-light"
               href="/uvjeti-koristenja"
